@@ -1,1052 +1,661 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <!-- Charset & Viewport -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://selix-tech.com/" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="/icone.png" type="image/png" />
-
-  <!-- SEO classique -->
   <title>Selix Tech - Développement d'applications et solutions tech innovantes</title>
-  <meta name="description" content="Selix Tech conçoit et développe des applications mobiles, web et des solutions technologiques sur mesure pour accompagner votre entreprise.">
-  <meta name="author" content="Selix Tech">
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:title" content="Selix Tech - Développement d'applications et solutions tech innovantes">
-  <meta property="og:description" content="Selix Tech conçoit et développe des applications mobiles, web et des solutions technologiques sur mesure pour accompagner votre entreprise.">
-  <meta property="og:image" content="https://selix-tech.com/icone.png">
-  <meta property="og:url" content="https://selix-tech.com/">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Selix Tech - Développement d'applications et solutions tech innovantes">
-  <meta name="twitter:description" content="Selix Tech conçoit et développe des applications mobiles, web et des solutions technologiques sur mesure pour accompagner votre entreprise.">
-  <meta name="twitter:image" content="https://selix-tech.com/icone.png">
-
-<link rel="icon" type="image/x-icon" href="/icone.png" />
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --selix-green: #4CAF50;
-            --selix-orange: #FF7722;
-            --selix-dark: #2C3E50;
-            --selix-light: #ECF0F1;
-            --gradient-primary: linear-gradient(135deg, #4CAF50 0%, #45A049 100%);
-            --gradient-secondary: linear-gradient(135deg, #FF7722 0%, #E65100 100%);
-            --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Header */
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--selix-orange);
-        }
-
-.logo-img {
-    width: 140px;  
-    height: 140px;  
-    margin: 0 auto;
-    display: block;
-    position: absolute;
-
-    /* Logo en fond */
-    background-image: url("logo.png");
-    background-size: 100%;      /* le logo prend 80% de la zone */
-    background-repeat: no-repeat;
-    background-position: center;
-
-    /* Rendu net */
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-
-    -webkit-user-drag: none;
-    user-select: none;
-
-    /* Animation flottante */
-    animation: float 3s ease-in-out infinite;
-}
-
-
-@keyframes float {
-    0%   { transform: translateY(0); }
-    50%  { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-}
-
-
-/* animation */
-@keyframes float {
-    0%   { transform: translateY(0); }
-    50%  { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-}
-
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--selix-dark);
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--selix-green);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: var(--selix-green);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            background: var(--gradient-bg);
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            padding-top: 40px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            z-index: 1;
-            position: relative;
-        }
-
-        .hero-text {
-            animation: slideInLeft 1s ease-out;
-        }
-
-        .hero-title {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 1.5rem;
-            line-height: 1.4;
-            margin-top: 0;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary {
-            background: var(--gradient-primary);
-            color: white;
-            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: var(--selix-dark);
-            transform: translateY(-3px);
-        }
-
-        .hero-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: fadeInUp 1s ease-out 0.5s both;
-        }
-
-        .floating-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        /* Sections */
-        .section {
-            padding: 5rem 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--selix-dark);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: var(--gradient-primary);
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--selix-light);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #555;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--selix-orange);
-            display: block;
-        }
-
-        .stat-label {
-            color: #666;
-            font-weight: 500;
-        }
-
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient-primary);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-primary);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .service-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--selix-dark);
-        }
-
-        .service-description {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Why Section */
-        .why {
-            background: var(--selix-dark);
-            color: white;
-        }
-
-        .why .section-title {
-            color: white;
-        }
-
-        .why .section-title::after {
-            background: var(--gradient-secondary);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .feature-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-secondary);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        .feature-content h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            color: white;
-        }
-
-        .feature-content p {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.6;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: var(--gradient-primary);
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .cta-content h2 {
-            font-size: 2.5rem;
-            color: white;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .cta-content p {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-        }
-
-        .cta-button {
-            background: white;
-            color: var(--selix-orange);
-            padding: 1.2rem 3rem;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            animation: pulse 1s infinite;
-        }
-
-        /* Footer */
-        .footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--selix-green);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-container {
-                padding: 0 1rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                padding-top: 20px;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 2rem;
-                padding: 0 1rem;
-            }
-
-            .hero-title {
-                font-size: 2.2rem;
-                margin-top: 1rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .cta-buttons {
-                justify-content: center;
-            }
-
-            .btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding-top: 20px;
-            }
-
-            .hero-title {
-                font-size: 1.8rem;
-                line-height: 1.4;
-                margin-top: 0;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-content h2 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --orange: #FF7722;
+      --orange-light: #FF9955;
+      --dark: #1a1a1a;
+      --white: #ffffff;
+      --gray-light: #f8f9fa;
+      --gray: #6c757d;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      padding: 0.8rem 0;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dark);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: translateY(-2px);
+    }
+
+    .logo-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--orange);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--orange);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: var(--orange);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 2px;
+      background: var(--dark);
+      transition: all 0.3s ease;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(255,119,34,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 20s ease-in-out infinite;
+    }
+
+    .hero-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      z-index: 1;
+      position: relative;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .hero-title .highlight {
+      color: var(--orange);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+
+    .btn {
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: white;
+      box-shadow: 0 8px 20px rgba(255,119,34,0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(255,119,34,0.35);
+      background: var(--orange-light);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--dark);
+      border: 2px solid var(--dark);
+    }
+
+    .btn-secondary:hover {
+      background: var(--dark);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* Section */
+    .section {
+      padding: 4rem 2rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: var(--dark);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--orange);
+      border-radius: 2px;
+    }
+
+    /* Services */
+    .services {
+      background: var(--gray-light);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      transition: all 0.4s ease;
+      border: 1px solid rgba(0,0,0,0.05);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .service-card:nth-child(1) { animation-delay: 0.1s; }
+    .service-card:nth-child(2) { animation-delay: 0.2s; }
+    .service-card:nth-child(3) { animation-delay: 0.3s; }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      border-color: var(--orange);
+    }
+
+    .service-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--orange);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover .service-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .service-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: var(--dark);
+    }
+
+    .service-description {
+      color: var(--gray);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    /* Why Section */
+    .why {
+      background: var(--white);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .feature-item:nth-child(1) { animation-delay: 0.1s; }
+    .feature-item:nth-child(2) { animation-delay: 0.2s; }
+    .feature-item:nth-child(3) { animation-delay: 0.3s; }
+    .feature-item:nth-child(4) { animation-delay: 0.4s; }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--gray-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin: 0 auto 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .feature-item:hover .feature-icon {
+      background: var(--orange);
+      transform: scale(1.1);
+    }
+
+    .feature-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    .feature-item p {
+      color: var(--gray);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: var(--dark);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+      color: white;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .cta-content p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 2rem;
+    }
+
+    .cta-button {
+      background: var(--orange);
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(255,119,34,0.3);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(255,119,34,0.4);
+      background: var(--orange-light);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--white);
+      color: var(--gray);
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      font-size: 0.9rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.2); opacity: 0.8; }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 1rem 2rem;
+        gap: 1rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+      }
+
+      .services-grid,
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav-container">
-            <div class="logo">
-                <div class="logo-img">
-                </div>
-               
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Accueil</a></li>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav-container">
+      <a href="#" class="logo">
+        <div class="logo-dot"></div>
+        Selix Tech
+      </a>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why">Avantages</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">Selix - L'innovation digitale au service de votre croissance</h1>
-                <p class="hero-subtitle">Nous aidons entreprises et particuliers à se digitaliser avec des solutions rapides, sécurisées et adaptées au marché africain.</p>
-                <div class="cta-buttons">
-                    <a href="#services" class="btn btn-primary">Découvrir nos services</a>
-                    <a href="#contact" class="btn btn-secondary">Contactez-nous</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="floating-card">
-                    <svg width="200" height="200" viewBox="0 0 200 200">
-                        <!-- Animated tech elements -->
-                        <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
-                        <circle cx="100" cy="100" r="60" fill="none" stroke="rgba(76,175,80,0.5)" stroke-width="2"/>
-                        <circle cx="100" cy="100" r="40" fill="none" stroke="rgba(255,119,34,0.5)" stroke-width="2"/>
-                        <circle cx="100" cy="100" r="10" fill="white"/>
-                        <!-- Connecting lines -->
-                        <line x1="100" y1="20" x2="100" y2="40" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
-                        <line x1="100" y1="160" x2="100" y2="180" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
-                        <line x1="20" y1="100" x2="40" y2="100" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
-                        <line x1="160" y1="100" x2="180" y2="100" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
-                    </svg>
-                </div>
-            </div>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Solutions tech <span class="highlight">innovantes</span> pour votre entreprise
+      </h1>
+      <p class="hero-subtitle">
+        Conception et développement d'applications mobiles, web et solutions sur mesure pour propulser votre croissance
+      </p>
+      <div class="cta-buttons">
+        <a href="#contact" class="btn btn-primary">Démarrer un projet</a>
+        <a href="#services" class="btn btn-secondary">Nos services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section services" id="services">
+    <div class="container">
+      <h2 class="section-title">Nos Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">📱</div>
+          <h3 class="service-title">Applications Mobiles</h3>
+          <p class="service-description">
+            Développement d'applications iOS et Android performantes et intuitives
+          </p>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about section animate-on-scroll" id="about">
-        <div class="container">
-            <h2 class="section-title">Qui sommes-nous ?</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Chez <strong>Selix</strong>, nous développons des solutions IT modernes pour accompagner la transformation digitale en Afrique. De la création de sites web et applications mobiles, à la cybersécurité et l'automatisation, nous mettons l'innovation au service de vos ambitions.</p>
-                    <br>
-                    <p>Notre équipe passionnée combine expertise technique et compréhension profonde du marché africain pour offrir des solutions qui répondent vraiment à vos besoins.</p>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <span class="stat-number">10+</span>
-                        <span class="stat-label">Projets réalisés</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Clients satisfaits</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">2+</span>
-                        <span class="stat-label">Années d'expérience</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">24/7</span>
-                        <span class="stat-label">Support technique</span>
-                    </div>
-                </div>
-            </div>
+        <div class="service-card">
+          <div class="service-icon">💻</div>
+          <h3 class="service-title">Applications Web</h3>
+          <p class="service-description">
+            Solutions web modernes et responsive adaptées à vos besoins
+          </p>
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services section animate-on-scroll" id="services">
-        <div class="container">
-            <h2 class="section-title">Ce que nous offrons</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">💻</div>
-                    <h3 class="service-title">Développement Web & Mobile</h3>
-                    <p class="service-description">Des plateformes modernes, rapides et intuitives. Nous créons des expériences utilisateur exceptionnelles pour tous vos projets digitaux.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🛡️</div>
-                    <h3 class="service-title">Cybersécurité</h3>
-                    <p class="service-description">Protégez vos données et vos infrastructures avec nos solutions de sécurité avancées et nos audits de sécurité complets.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">☁️</div>
-                    <h3 class="service-title">Solutions Cloud & IT</h3>
-                    <p class="service-description">Optimisez vos performances avec des services cloud fiables, scalables et parfaitement adaptés à vos besoins métier.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🎓</div>
-                    <h3 class="service-title">Conseil & Formation</h3>
-                    <p class="service-description">Montez en compétence et restez compétitif grâce à nos programmes de formation et notre accompagnement stratégique.</p>
-                </div>
-            </div>
+        <div class="service-card">
+          <div class="service-icon">🚀</div>
+          <h3 class="service-title">Solutions Sur Mesure</h3>
+          <p class="service-description">
+            Technologies innovantes personnalisées pour votre croissance
+          </p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Why Section -->
-    <section class="why section animate-on-scroll">
-        <div class="container">
-            <h2 class="section-title">Pourquoi choisir Selix ?</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">⚡</div>
-                    <div class="feature-content">
-                        <h3>Expertise technique</h3>
-                        <p>Une équipe passionnée par la technologie, toujours à la pointe des dernières innovations et tendances du marché.</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🌍</div>
-                    <div class="feature-content">
-                        <h3>Compréhension locale</h3>
-                        <p>Des solutions pensées pour les besoins spécifiques du marché africain, avec une approche culturellement adaptée.</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🚀</div>
-                    <div class="feature-content">
-                        <h3>Innovation rapide</h3>
-                        <p>Nous transformons vos idées en produits concrets rapidement, avec une méthodologie agile et efficace.</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🔒</div>
-                    <div class="feature-content">
-                        <h3>Sécurité garantie</h3>
-                        <p>Vos données et vos utilisateurs sont toujours protégés grâce à nos protocoles de sécurité renforcés.</p>
-                    </div>
-                </div>
-            </div>
+  <!-- Why -->
+  <section class="section why" id="why">
+    <div class="container">
+      <h2 class="section-title">Pourquoi Selix Tech ?</h2>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">⚡</div>
+          <h3>Rapidité</h3>
+          <p>Livraison rapide sans compromis sur la qualité</p>
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section" id="contact">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Prêt à accélérer votre transformation digitale ?</h2>
-                <p>Contactez-nous dès aujourd'hui pour un accompagnement sur mesure</p>
-                <a href="mailto:developer.selix.tech@gmail.com" class="cta-button">Commencer maintenant</a>
-            </div>
+        <div class="feature-item">
+          <div class="feature-icon">🎯</div>
+          <h3>Expertise</h3>
+          <p>Technologies de pointe et meilleures pratiques</p>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                       <div class="logo">
-                <div class="logo-img">
-                </div>
-               
-            </div>
-                
-                </div>
-                <ul class="footer-links">
-                    <li><a href="#home">Accueil</a></li>
-                    <li><a href="#about">À propos</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div>
-                    <p>&copy; 2024 Selix Tech. Tous droits réservés.</p>
-                </div>
-            </div>
+        <div class="feature-item">
+          <div class="feature-icon">🤝</div>
+          <h3>Accompagnement</h3>
+          <p>Suivi personnalisé à chaque étape</p>
         </div>
-    </footer>
+        <div class="feature-item">
+          <div class="feature-icon">💡</div>
+          <h3>Innovation</h3>
+          <p>Solutions créatives adaptées à vos défis</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="cta-content">
+      <h2>Prêt à démarrer votre projet ?</h2>
+      <p>Contactez-nous pour discuter de vos besoins</p>
+      <a href="mailto:contact@selix-tech.com" class="cta-button">Nous contacter</a>
+    </div>
+  </section>
 
-        // Header background change on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = 'none';
-            }
-        });
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2026 Selix Tech. Tous droits réservés.</p>
+    </div>
+  </footer>
 
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Add hover effects to service cards
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Add click effect to CTA button
-        document.querySelector('.cta-button').addEventListener('click', function(e) {
-            // Create ripple effect
-            const ripple = document.createElement('span');
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            
-            ripple.style.width = ripple.style.height = size + 'px';
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-            ripple.style.position = 'absolute';
-            ripple.style.borderRadius = '50%';
-            ripple.style.background = 'rgba(255, 255, 255, 0.3)';
-            ripple.style.pointerEvents = 'none';
-            ripple.style.animation = 'ripple 0.6s linear';
-            
-            this.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-        });
-
-        // Add ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(2);
-                    opacity: 0;
-                }
-            }
-            .cta-button {
-                position: relative;
-                overflow: hidden;
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Parallax effect for hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            const rate = scrolled * -0.5;
-            
-            if (hero) {
-                hero.style.transform = `translateY(${rate}px)`;
-            }
-        });
-
-        // Counter animation for stats
-        function animateCounter(element, target, duration = 2000) {
-            const start = 0;
-            const increment = target / (duration / 16);
-            let current = start;
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                
-                if (target) {
-                    element.textContent = Math.floor(current) + '+';
-                } else if (target.toString().includes('/')) {
-                    element.textContent = target;
-                } else {
-                    element.textContent = Math.floor(current);
-                }
-            }, 16);
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          document.getElementById('navLinks').classList.remove('active');
         }
+      });
+    });
 
-        // Trigger counter animation when stats come into view
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumber = entry.target.querySelector('.stat-number');
-                    const text = statNumber.textContent;
-                    const number = parseInt(text.replace(/[^0-9]/g, ''));
-                    
-                    if (text.includes('+')) {
-                        animateCounter(statNumber, number);
-                    } else if (text.includes('/')) {
-                        statNumber.textContent = text; // Keep as is for 24/7
-                    } else {
-                        animateCounter(statNumber, number);
-                    }
-                    
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
 
-        document.querySelectorAll('.stat-card').forEach(card => {
-            statsObserver.observe(card);
-        });
-
-        // Add loading animation
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.5s ease';
-            
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
-        });
-
-        // Mobile menu toggle (if needed for future enhancement)
-        function createMobileMenu() {
-            const header = document.querySelector('.header');
-            const nav = document.querySelector('.nav-container');
-            
-            // Add mobile menu button
-            const mobileMenuBtn = document.createElement('button');
-            mobileMenuBtn.innerHTML = '☰';
-            mobileMenuBtn.className = 'mobile-menu-btn';
-            mobileMenuBtn.style.display = 'none';
-            mobileMenuBtn.style.background = 'none';
-            mobileMenuBtn.style.border = 'none';
-            mobileMenuBtn.style.fontSize = '1.5rem';
-            mobileMenuBtn.style.cursor = 'pointer';
-            mobileMenuBtn.style.color = 'var(--selix-dark)';
-            
-            nav.appendChild(mobileMenuBtn);
-            
-            // Show/hide mobile menu button based on screen size
-            function checkScreenSize() {
-                if (window.innerWidth <= 768) {
-                    mobileMenuBtn.style.display = 'block';
-                } else {
-                    mobileMenuBtn.style.display = 'none';
-                }
-            }
-            
-            window.addEventListener('resize', checkScreenSize);
-            checkScreenSize();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
         }
+      });
+    }, observerOptions);
 
-        createMobileMenu();
-    </script>
+    document.querySelectorAll('.service-card, .feature-item').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
